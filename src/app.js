@@ -51,13 +51,13 @@ app.get('/weather', (req, res) => {
   geocode(req.query.address, (error, {longtitude, latitude, location} = []) => {
     if (error) {
       return res.send({
-        error: 'Location not found, Try another search'
+        error: error
       })
     }
     forecast(longtitude, latitude, (error, forecastData) => {
       if (error) {
         return res.send({
-          error: 'Whoops, I made a fucky wucky'
+          error: error
         })
       }
 
