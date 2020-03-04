@@ -2,10 +2,11 @@ const path = require('path');
 const express = require('express');
 const hbs = require('hbs');
 const request = require('request')
-const geocode = require('./utils/geocode.js')
-const forecast = require('./utils/forecast.js')
+const geocode = require('./utils/geocode')
+const forecast = require('./utils/forecast')
 
 const app = express()
+const port = process.env.PORT || 3000
 const city = process.argv[2]
 
 // Paths
@@ -96,6 +97,6 @@ app.get('*', (req, res) => {
   })
 })
 
-app.listen(process.env.PORT || 3000, function(){
-  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
-});
+app.listen(port, () => {
+  console.log(`server is up on port ${port}`);
+})
