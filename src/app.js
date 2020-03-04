@@ -2,8 +2,8 @@ const path = require('path');
 const express = require('express');
 const hbs = require('hbs');
 const request = require('request')
-const geocode = require('./utils/geocode')
-const forecast = require('./utils/forecast')
+const geocode = require('./utils/geocode.js')
+const forecast = require('./utils/forecast.js')
 
 const app = express()
 const city = process.argv[2]
